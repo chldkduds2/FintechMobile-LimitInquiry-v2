@@ -1,6 +1,6 @@
 'use client';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initialIsRateSortState } from '@/types/LoansListSortStateType/loansListSortState.type';
+import { initialIsRateSortState } from '@/types/LoansListDateType/LoansListSortStateType/loansListSortState.type';
 
 const loansListSortStateSlice = createSlice({
     name: 'loansListSortState',

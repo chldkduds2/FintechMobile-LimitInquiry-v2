@@ -1,9 +1,15 @@
 import { LoansApply } from '@/types/LoansListDateType/loansListDate.type';
 
+const baseUrl = process.env.NEXT_PUBLIC_LOCAL_API_URL;
+
 class LoansListDateApi {
     public async getLoanListDateAPI(): Promise<LoansApply[]> {
         try {
-            const response = await fetch('/api/Data/LimitInquiryResponse_ExampleDummyData');
+            if (!baseUrl) {
+                throw new Error('API URL is not defined in environment variables');
+            }
+
+            const response = await fetch(`${baseUrl}/api/Data/LimitInquiryResponse_ExampleDummyData`);
 
             if (!response.ok) {
                 throw new Error(`Failed to fetch data: ${response.statusText}`);
@@ -23,5 +29,4 @@ class LoansListDateApi {
     }
 }
 
-const loansListDateApi = new LoansListDateApi();
-export default loansListDateApi;
+export default new LoansListDateApi();

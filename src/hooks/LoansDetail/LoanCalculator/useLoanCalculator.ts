@@ -1,4 +1,4 @@
-import { LoanCalculatorStateType } from '@/types/LoansDetailType/LoanCalculatorType/LoanCalculator.type';
+import { LoanCalculatorStateType } from '@/types/LoansListDateType/LoanCalculatorType/LoanCalculator.type';
 
 const useLoanCalculator = ({ loanAmount, annualInterestRate, loanPeriodMonths }: LoanCalculatorStateType) => {
     // 월 이자율 계산

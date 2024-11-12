@@ -7,7 +7,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <link rel="icon" href="/favicon.ico" />
-            <body>{children}</body>
+            <body>
+                {children}
+                <div id="modal-portal"></div>
+            </body>
         </html>
     );
 }

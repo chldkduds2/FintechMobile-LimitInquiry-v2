@@ -1,6 +1,6 @@
 'use client';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initialLoanFilterBarState } from '@/types/LoanFilterBarType/loanFilterBar.type';
+import { initialLoanFilterBarState } from '@/types/LoansListDateType/LoanFilterBarType/loanFilterBar.type';
 
 const loansFilterBarStateSlice = createSlice({
     name: 'loansFilterBarState',

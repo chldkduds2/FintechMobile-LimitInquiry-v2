@@ -34,3 +34,15 @@ input {
         margin: 0;
     }
 }
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #e0e0e0;
+    }
+    50% {
+        background-color: #c0c0c0;
+    }
+    100% {
+        background-color: #e0e0e0;
+    }
+}

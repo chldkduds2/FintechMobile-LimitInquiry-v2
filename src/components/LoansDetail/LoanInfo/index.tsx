@@ -1,16 +1,22 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { LimitInquiryResponse_DetailedDummyData } from '../../../../app/api/Data/LimitInquiryResponse_DetailedDummyData/index';
+import useLoansListDetailDate from '@/services/LoansListDetailDateRepository/queries';
 import LoanInfoAccordionItem from './LonInfoAccordionItem/index';
 
 const LoanInfo = () => {
-    const data = LimitInquiryResponse_DetailedDummyData.product.displayProperty.v1.termsAndCondition;
-    const [openIndexes, setOpenIndexes] = useState<boolean[]>(Array(data.length).fill(true));
+    const { data } = useLoansListDetailDate();
+    const [openIndexes, setOpenIndexes] = useState<boolean[]>([]);
+
+    useEffect(() => {
+        if (data) {
+            setOpenIndexes(Array(data.length).fill(true));
+        }
+    }, [data]);
 
     const toggleAll = () => {
         const newState = openIndexes.some((isOpen) => isOpen) ? false : true;
-        setOpenIndexes(Array(data.length).fill(newState));
+        setOpenIndexes(Array(data?.length).fill(newState));
     };
 
     const toggleOpen = (index: number) => {
@@ -35,9 +41,9 @@ const LoanInfo = () => {
             </div>
             <div className="flex justify-center m-auto w-[91%] items-center border-b border-[#c1c2ca]/30"></div>
             <div className="mt-2">
-                {data.map((item, index) => {
+                {data?.map((item, index) => {
                     const title = Object.keys(item)[0];
-                    const content = (item as { [key: string]: string | undefined })[title] || '';
+                    const content = (item as unknown as { [key: string]: string | undefined })[title] || '';
                     return (
                         <LoanInfoAccordionItem
                             key={index}

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoansApply } from '@/types/LoansListDateType/loansListDate.type';
-import { LoansTypeFilterType } from '@/types/LoanFilterBarType/LoansTypeFilterModalType/loansTypeFilterModal.type';
+import { LoansTypeFilterType } from '@/types/LoansListDateType/LoanFilterBarType/LoansTypeFilterModalType/loansTypeFilterModal.type';
 import { removeFilter } from '@/store/Slice/LoansFilterBarStateSlice/reducer';
 import { selectLoansTypeFilterBarState, selectIsLoansTypeModalOpenState } from '@/store/Selectors/index';
 import {

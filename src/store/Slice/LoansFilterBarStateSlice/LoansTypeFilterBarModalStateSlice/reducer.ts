@@ -1,6 +1,6 @@
 'use client';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initialLoansTypeFilterModalState } from '@/types/LoanFilterBarType/LoansTypeFilterModalType/loansTypeFilterModal.type';
+import { initialLoansTypeFilterModalState } from '@/types/LoansListDateType/LoanFilterBarType/LoansTypeFilterModalType/loansTypeFilterModal.type';
 
 const loansTypeFilterModalStateSlice = createSlice({
     name: 'loansTypeFilterModalState',

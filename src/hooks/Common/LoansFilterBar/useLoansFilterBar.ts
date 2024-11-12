@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { LoansFilterType } from '@/types/LoanFilterBarType/loanFilterBar.type';
+import { LoansFilterType } from '@/types/LoansListDateType/LoanFilterBarType/loanFilterBar.type';
 import { addFilter, removeFilter, resetFilter } from '@/store/Slice/LoansFilterBarStateSlice/reducer';
 import { selectLoansFilterBarState } from '@/store/Selectors/index';
 import { resetLoansTypeFilter } from '@/store/Slice/LoansFilterBarStateSlice/LoansTypeFilterBarModalStateSlice/reducer';

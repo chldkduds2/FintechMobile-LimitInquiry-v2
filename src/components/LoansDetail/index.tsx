@@ -28,7 +28,7 @@ const LoansDetail = () => {
     }, [loanId, approvedConditionsLoanListDate]);
 
     if (isLoansRateLimitListPending || isLoansListPending || loanDetails === null) {
-        return <div>Loading...</div>;
+        return;
     }
 
     const hasRedemptionFeeTag = loanDetails.product.tags.some((tag) => tag.text === '중도상환수수료');

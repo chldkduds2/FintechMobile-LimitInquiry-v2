@@ -4,7 +4,7 @@ import { LuCalendar } from 'react-icons/lu';
 import { TbAdjustmentsHorizontal } from 'react-icons/tb';
 import useLoansFormat from '@/hooks/LoansFormat/useLoansFormat';
 import useLoanCalculator from '@/hooks/LoansDetail/LoanCalculator/useLoanCalculator';
-import { LoanCalculatorPropsType } from '@/types/LoansDetailType/LoanCalculatorType/LoanCalculator.type';
+import { LoanCalculatorPropsType } from '@/types/LoansListDateType/LoanCalculatorType/LoanCalculator.type';
 
 const LoanCalculator: React.FC<LoanCalculatorPropsType> = ({ loanLimit, loanRate }) => {
     const { loanLimitDateFormatted } = useLoansFormat();

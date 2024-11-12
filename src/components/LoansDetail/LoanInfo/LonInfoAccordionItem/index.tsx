@@ -1,5 +1,6 @@
 'use client';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+
 const LoanInfoAccordionItem = ({
     title,
     content,
@@ -11,10 +12,12 @@ const LoanInfoAccordionItem = ({
     isOpen: boolean;
     toggleOpen: () => void;
 }) => {
+    const safeContent = typeof content === 'string' ? content : '';
+
     return (
         <div className="mb-[15px]">
             <button className="flex justify-between w-full px-5 text-left" onClick={toggleOpen}>
-                <span className=" min-h-[55px] truncate whitespace-pre-wrap py-[18px] text-sm font-medium tracking-[-0.01em] text-black">
+                <span className="min-h-[55px] truncate whitespace-pre-wrap py-[18px] text-sm font-medium tracking-[-0.01em] text-black">
                     {title}
                 </span>
                 <span className="py-[18px]">
@@ -23,8 +26,8 @@ const LoanInfoAccordionItem = ({
             </button>
             {isOpen && (
                 <div className="flex items-center justify-center overflow-visible">
-                    <div className="mb-[-15px] bg-gray-99 px-6  py-[18px] w-full mx-auto">
-                        {content.split('<br/>').map((line, index) => (
+                    <div className="mb-[-15px] bg-gray-99 px-6 py-[18px] w-full mx-auto">
+                        {safeContent.split('<br/>').map((line, index) => (
                             <span
                                 className="whitespace-pre-wrap text-[13px] tracking-[-0.01em] text-gray-50 pb-44"
                                 key={index}
@@ -38,4 +41,5 @@ const LoanInfoAccordionItem = ({
         </div>
     );
 };
+
 export default LoanInfoAccordionItem;

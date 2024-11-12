@@ -1,3 +1,4 @@
+import axios from 'axios';
 import axiosInstance from '@/utils/CustomAxios/axios';
 import { UserInfoStateType } from '@/types/UserInfoStateType/userInfoState.type';
 
@@ -7,11 +8,9 @@ class UserInfoApi {
             const response = await axiosInstance.get('/account/v4/user/info');
             return response.data;
         } catch (error) {
-            console.error('Error fetching loan list data:', error);
-            throw error;
+            throw new Error(String(error));
         }
     }
 }
 
-const userInfoApi = new UserInfoApi();
-export default userInfoApi;
+export default new UserInfoApi();

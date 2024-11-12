@@ -8,7 +8,7 @@ import {
     selectLoansTypeFilterBarState,
     selectLoansListSortState,
 } from '@/store/Selectors/index';
-import { LoansTypeFilterType } from '@/types/LoanFilterBarType/LoansTypeFilterModalType/loansTypeFilterModal.type';
+import { LoansTypeFilterType } from '@/types/LoansListDateType/LoanFilterBarType/LoansTypeFilterModalType/loansTypeFilterModal.type';
 
 const useLoansFilteringAndSortingList = () => {
     const { data: LoansListDate = [], error } = useLoansListDate('condition_approved');
