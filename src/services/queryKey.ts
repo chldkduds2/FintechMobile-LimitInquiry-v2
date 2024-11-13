@@ -8,6 +8,7 @@ export const QUERY_KEYS = {
         ],
     },
     loginValue: {
+        loginToken: ['loginToken'],
         userInfo: ['userInfo'],
     },
 };

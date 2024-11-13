@@ -7,6 +7,7 @@ import useUserInfo from '@/services/UserInfoRepository/queries';
 const usePageScraping = () => {
     const { data: userInfo, isLoading } = useUserInfo();
     const [progress, setProgress] = useState(0);
+    const [dots, setDots] = useState(1);
     const router = useRouter();
 
     useEffect(() => {
@@ -31,12 +32,20 @@ const usePageScraping = () => {
     }, [userInfo, isLoading]);
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            setDots((prev) => (prev === 3 ? 1 : prev + 1));
+        }, 350);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
         if (progress === 100) {
             router.push('/result');
         }
     }, [progress, router]);
 
-    return { userInfo, progress, isLoading };
+    return { userInfo, progress, dots, isLoading };
 };
 
 export default usePageScraping;

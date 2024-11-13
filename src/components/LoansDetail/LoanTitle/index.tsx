@@ -1,5 +1,5 @@
 'use client';
-import useLoansFormat from '@/hooks/LoansFormat/useLoansFormat';
+import useLoansFormat from '@/hooks/Common/LoansFormat/useLoansFormat';
 import { LoansListTagsColor } from '@/utils/LoansListTagsColor';
 import { LoansApply } from '@/types/LoansListDateType/loansListDate.type';
 import Image from 'next/image';

@@ -12,6 +12,7 @@ const LoanInfo = () => {
         if (data) {
             setOpenIndexes(Array(data.length).fill(true));
         }
+        console.log(data);
     }, [data]);
 
     const toggleAll = () => {
@@ -42,17 +43,22 @@ const LoanInfo = () => {
             <div className="flex justify-center m-auto w-[91%] items-center border-b border-[#c1c2ca]/30"></div>
             <div className="mt-2">
                 {data?.map((item, index) => {
-                    const title = Object.keys(item)[0];
-                    const content = (item as unknown as { [key: string]: string | undefined })[title] || '';
-                    return (
-                        <LoanInfoAccordionItem
-                            key={index}
-                            title={title}
-                            content={content}
-                            isOpen={openIndexes[index]}
-                            toggleOpen={() => toggleOpen(index)}
-                        />
-                    );
+                    const termsList = item.product.displayProperty.v1.termsAndCondition;
+                    return termsList.map((terms, termsIndex) => {
+                        return Object.entries(terms).map(([key, value]) => {
+                            const content = value || '';
+
+                            return (
+                                <LoanInfoAccordionItem
+                                    key={`${index}-${termsIndex}-${key}`}
+                                    title={key || '데이터를 불러오는데 실패하였습니다.'}
+                                    content={content}
+                                    isOpen={openIndexes[index]}
+                                    toggleOpen={() => toggleOpen(index)}
+                                />
+                            );
+                        });
+                    });
                 })}
             </div>
             <div className="fixed bottom-0 left-0 z-50 w-full">

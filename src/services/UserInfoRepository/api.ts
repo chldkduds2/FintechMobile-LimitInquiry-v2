@@ -1,4 +1,3 @@
-import axios from 'axios';
 import axiosInstance from '@/utils/CustomAxios/axios';
 import { UserInfoStateType } from '@/types/UserInfoStateType/userInfoState.type';
 

@@ -2,7 +2,7 @@
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 import { LuCalendar } from 'react-icons/lu';
 import { TbAdjustmentsHorizontal } from 'react-icons/tb';
-import useLoansFormat from '@/hooks/LoansFormat/useLoansFormat';
+import useLoansFormat from '@/hooks/Common/LoansFormat/useLoansFormat';
 import useLoanCalculator from '@/hooks/LoansDetail/LoanCalculator/useLoanCalculator';
 import { LoanCalculatorPropsType } from '@/types/LoansListDateType/LoanCalculatorType/LoanCalculator.type';
 

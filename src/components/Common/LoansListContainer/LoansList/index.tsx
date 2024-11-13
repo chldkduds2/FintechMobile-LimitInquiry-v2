@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
 import { LoansApply } from '@/types/LoansListDateType/loansListDate.type';
-import useLoansFilteringAndSortingList from '@/hooks/LoansFilteringAndSortingList/useLoansListFiltering';
+import useLoansFilteringAndSortingList from '@/hooks/Common/LoansFilteringAndSortingList/useLoansListFiltering';
 import { LoansListTagsColor } from '@/utils/LoansListTagsColor';
-import useLoansFormat from '@/hooks/LoansFormat/useLoansFormat';
+import useLoansFormat from '@/hooks/Common/LoansFormat/useLoansFormat';
 import useLoansList from '@/hooks/Common/LoansListContainer/LoansList/useLoansList';
 import { TbExclamationCircle } from 'react-icons/tb';
 import { HiOutlineRefresh } from 'react-icons/hi';

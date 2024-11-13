@@ -1,9 +1,9 @@
 'use client';
-import React from 'react';
+
 import usePageScraping from '@/hooks/PageScraping/usePageScraping';
 
 const PageScraping = () => {
-    const { userInfo, progress } = usePageScraping();
+    const { userInfo, progress, dots } = usePageScraping();
 
     return (
         <div className="px-5">
@@ -14,7 +14,7 @@ const PageScraping = () => {
                 대출조건을 받아오고 있어요
             </p>
             <p className="mt-[10px] text-14-regular text-gray-50">
-                {progress === 100 ? '완료!' : `${Math.round(progress)}% 확인중`}
+                {progress === 100 ? '완료!' : `${Math.round(progress)}% 확인중${'.'.repeat(dots)}`}
             </p>
         </div>
     );

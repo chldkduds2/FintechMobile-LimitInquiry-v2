@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { throttle } from 'lodash';

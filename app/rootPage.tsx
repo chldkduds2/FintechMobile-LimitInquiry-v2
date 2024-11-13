@@ -1,13 +1,14 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { ReactNode, Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Provider } from 'react-redux';
 import store from '@/store/index';
 import FintechMobalieLayout from '@/components/Common/FintechMobalieLayout/index';
-import ErrorBoundary from '@/components/Common/ErrorBoundary';
-import Skeleton from '@/components/Common/Skeleton/index';
+import ErrorBoundary from '@/components/Common/ErrorBoundary/index';
+import SkeletonFallbackUI from '@/components/Common/Skeleton/FallbackUI/index';
 import './globals.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const defaultQueryOptions = {
     staleTime: 1000 * 60 * 10,
@@ -22,17 +23,27 @@ const queryClient = new QueryClient({
     },
 });
 
-const RootPage = ({ children }: { children: React.ReactNode }) => {
+const RootPage = ({ children }: { children: ReactNode }) => {
     return (
-        <QueryClientProvider client={queryClient}>
-            <Provider store={store}>
-                <FintechMobalieLayout>
-                    <ErrorBoundary>
-                        <Suspense fallback={<Skeleton width="300px" height="40px" />}>{children}</Suspense>
-                    </ErrorBoundary>
-                </FintechMobalieLayout>
-            </Provider>
-        </QueryClientProvider>
+        <AnimatePresence mode="wait">
+            <motion.div
+                key="page-transition"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <QueryClientProvider client={queryClient}>
+                    <Provider store={store}>
+                        <FintechMobalieLayout>
+                            <ErrorBoundary>
+                                <Suspense fallback={<SkeletonFallbackUI />}>{children}</Suspense>
+                            </ErrorBoundary>
+                        </FintechMobalieLayout>
+                    </Provider>
+                </QueryClientProvider>
+            </motion.div>
+        </AnimatePresence>
     );
 };
 

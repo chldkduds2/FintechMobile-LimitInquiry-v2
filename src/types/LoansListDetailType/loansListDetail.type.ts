@@ -47,6 +47,7 @@ export interface DisplayProperty {
 }
 
 export interface Product {
+    termsAndCondition: any;
     id: number;
     bank: Bank;
     name: string;
