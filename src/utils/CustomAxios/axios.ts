@@ -9,15 +9,25 @@ const axiosInstance = axios.create({
     timeout: 10000,
 });
 
-axiosInstance.interceptors.request.use(
-    (config) => {
-        const token = process.env.NEXT_PUBLIC_AUTH_TOKEN_KEY;
-        if (token) {
-            config.headers['X-Auth-Token'] = token;
-        }
-        return config;
+axiosInstance.interceptors.response.use(
+    (response) => {
+        return response;
     },
-    (error) => Promise.reject(error)
+    (error) => {
+        if (axios.isAxiosError(error) && error.response?.status === 400) {
+            return Promise.reject();
+        }
+        console.error('API Error:', error);
+        return Promise.reject(error);
+    }
 );
+
+export const setAuthorizationToken = (token: string | null) => {
+    if (token) {
+        axiosInstance.defaults.headers['X-Auth-Token'] = token;
+    } else {
+        delete axiosInstance.defaults.headers['X-Auth-Token'];
+    }
+};
 
 export default axiosInstance;

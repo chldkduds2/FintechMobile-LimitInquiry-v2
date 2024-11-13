@@ -23,7 +23,7 @@ const FintechMobalieLayout = ({ children }: PropsWithChildren) => {
                 </div>
             </div>
             <div className={`${position > 100 && !notApprovedLoansDataModalOpenState ? '' : 'hidden'}`}>
-                <PageScrollfixedContentContainer pathname={pathname === '/'} scrollToTop={scrollToTop} />
+                <PageScrollfixedContentContainer pathname={pathname === '/result'} scrollToTop={scrollToTop} />
             </div>
         </div>
     );

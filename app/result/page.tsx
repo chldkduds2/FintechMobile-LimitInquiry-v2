@@ -1,12 +1,16 @@
-import React from 'react';
-import RootPage from '../rootPage';
+'use client';
+import React, { Suspense } from 'react';
+import FallbackUI from '@/components/Common/Skeleton/FallbackUI/index';
 import Result from '@/components/Result';
+import useUserLoginInfo from '@/services/UserLoginRepository/queries';
 
 const ResultPage = () => {
+    useUserLoginInfo();
+
     return (
-        <RootPage>
+        <Suspense fallback={<FallbackUI />}>
             <Result />
-        </RootPage>
+        </Suspense>
     );
 };
 

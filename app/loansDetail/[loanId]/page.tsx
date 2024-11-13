@@ -1,12 +1,14 @@
-import React from 'react';
-import RootPage from '../../rootPage';
+'use client';
+
+import React, { Suspense } from 'react';
+import FallbackUI from '@/components/Common/Skeleton/FallbackUI/index';
 import LoansDetail from '@/components/LoansDetail';
 
 const LoansDetailPage = () => {
     return (
-        <RootPage>
+        <Suspense fallback={<FallbackUI />}>
             <LoansDetail />
-        </RootPage>
+        </Suspense>
     );
 };
 export default LoansDetailPage;
