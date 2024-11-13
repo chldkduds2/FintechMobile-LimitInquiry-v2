@@ -1,7 +1,7 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
 import { QUERY_KEYS } from '@/services/queryKey';
-import useLoansFilteringAndSortingList from '@/hooks/LoansFilteringAndSortingList/useLoansListFiltering';
+import useLoansFilteringAndSortingList from '@/hooks/Common/LoansFilteringAndSortingList/useLoansListFiltering';
 import {
     LoansListCountStateType,
     initialLoansListCountState,

@@ -1,6 +1,6 @@
 'use client';
 import useLoansListDate from '@/services/LoansListDateRepository/queries';
-import useLoansFormat from '@/hooks/LoansFormat/useLoansFormat';
+import useLoansFormat from '@/hooks/Common/LoansFormat/useLoansFormat';
 import { LoansApply } from '@/types/LoansListDateType/loansListDate.type';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
