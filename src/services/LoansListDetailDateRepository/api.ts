@@ -17,8 +17,6 @@ class LoansListDetailDateAPI {
 
             const data = await response.json();
 
-            console.log('API Response Data:', data);
-
             if (data) {
                 return [data] as LoansListDetailResponseType[];
             } else {

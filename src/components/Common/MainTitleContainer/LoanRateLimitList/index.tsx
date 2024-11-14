@@ -1,5 +1,5 @@
 'use client';
-import useLoansRateLimitList from '@/hooks/Common/LoansRateLimitList/LoansRateLimitList';
+import useLoansRateLimitList from '@/hooks/Common/LoansRateLimitList/useLoansRateLimitList';
 import Image from 'next/image';
 
 const LoanRateLimitList = () => {

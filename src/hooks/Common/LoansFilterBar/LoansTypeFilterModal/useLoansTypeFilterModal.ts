@@ -67,9 +67,15 @@ export const useLoansTypeFilterModal = () => {
     const handleResultBtnClick = () => {
         dispatch(setIsLoansTypeModalOpenState(!isLoansTypeModalOpenState));
     };
+    const modalVariants = {
+        hidden: { y: '100%', opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } },
+        exit: { y: '100%', opacity: 0, transition: { duration: 0.2, ease: 'easeIn' } },
+    };
 
     return {
         modalPortal,
+        modalVariants,
         typeFilters,
         filteringDataListCounts,
         filteringDataListTotalCount,

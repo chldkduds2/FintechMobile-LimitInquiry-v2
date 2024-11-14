@@ -15,6 +15,9 @@ export const selectIsLoansTypeModalOpenState = (state: RootState) => state.modal
 export const selectNotApprovedLoansDataModalOpenState = (state: RootState) =>
     state.modalOpenState.notApprovedLoansDataModalOpenState;
 
+// 3-3. 사용자가 선택한 대출 상세페이지 CTA 모달 오픈 상태
+export const selectIsLoanCTAmodalOpenState = (state: RootState) => state.modalOpenState.isLoanCTAmodalOpenState;
+
 // 4. 사용자가 선택한 대출상품 종류 필터 모달 속성 상태
 export const selectLoansTypeFilterBarState = (state: RootState) =>
     state.loansTypeFilterModalState.loansTypeFilterModalState || [];
