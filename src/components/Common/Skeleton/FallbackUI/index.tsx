@@ -5,26 +5,14 @@ const FallbackUI = () => {
     return (
         <React.Fragment>
             <div className="mb-5">
-                <Skeleton width="400px" height="180px" />
+                <Skeleton width="400px" height="250px" />
             </div>
 
             <div className="mb-5">
-                <Skeleton width="400px" height="60px" />
+                <Skeleton width="400px" height="180px" />
             </div>
             <div className="mb-5">
-                <Skeleton width="400px" height="60px" />
-            </div>
-            <div className="mb-5">
-                <Skeleton width="400px" height="60px" />
-            </div>
-            <div className="mb-5">
-                <Skeleton width="400px" height="60px" />
-            </div>
-            <div className="mb-5">
-                <Skeleton width="400px" height="60px" />
-            </div>
-            <div className="mb-5">
-                <Skeleton width="400px" height="60px" />
+                <Skeleton width="400px" height="180px" />
             </div>
             <div className="mb-5">
                 <Skeleton width="400px" height="60px" />

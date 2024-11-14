@@ -1,23 +1,23 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
 import { QUERY_KEYS } from '@/services/queryKey';
-import useLoansFilteringAndSortingList from '@/hooks/Common/LoansFilteringAndSortingList/useLoansListFiltering';
+import useLoansListDate from '../LoansListDateRepository/queries';
 import {
     LoansListCountStateType,
     initialLoansListCountState,
 } from '@/types/LoansListCountStateType/loansListCountState.type';
 
-// [ 조건부 승인 대출 상품 건수 쿼리 ]
 const useLoansListCountState = () => {
-    const { LoansFilteringAndSortingList } = useLoansFilteringAndSortingList();
+    const { data: LoansListData } = useLoansListDate(null);
 
-    // approvedConditionsLoansFilteringList의 길이를 기반으로 쿼리 키 생성
-    const queryKey = QUERY_KEYS.loanValue.LoansListCountState(LoansFilteringAndSortingList?.length ?? 0);
+    const uniqueBankNamesCount = LoansListData ? new Set(LoansListData.map((item) => item.product.bank.name)).size : 0;
+
+    const queryKey = QUERY_KEYS.loanValue.LoansFilteringListCountState(uniqueBankNamesCount);
 
     const { data: loansListCountState = initialLoansListCountState } = useQuery<LoansListCountStateType>({
         queryKey: queryKey,
         queryFn: () => {
-            return { loansListCountState: LoansFilteringAndSortingList?.length ?? 0 };
+            return { loansListCountState: uniqueBankNamesCount };
         },
     });
 

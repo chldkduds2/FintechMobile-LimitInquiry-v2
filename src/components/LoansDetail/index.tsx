@@ -7,7 +7,7 @@ import LoanTitle from './LoanTitle/index';
 import LoanContent from './LoanContant/index';
 import LoanCalculator from './LoanCalculator/index';
 import LoanInfo from './LoanInfo/index';
-import useLoansRateLimitList from '@/hooks/Common/LoansRateLimitList/LoansRateLimitList';
+import useLoansRateLimitList from '@/hooks/Common/LoansRateLimitList/useLoansRateLimitList';
 import useLoansList from '@/hooks/Common/LoansListContainer/LoansList/useLoansList';
 import { LoansApply } from '@/types/LoansListDateType/loansListDate.type';
 import { useSearchParams } from 'next/navigation';

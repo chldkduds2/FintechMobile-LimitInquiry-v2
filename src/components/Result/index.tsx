@@ -21,7 +21,7 @@ const Result = () => {
             </FintechMobalieContentLayout>
             <div className="h-[10px] w-full bg-gray-99" />
             <FintechMobalieContentLayout>
-                <div className={` ${Number(position) > 260 && pathname === '/' ? 'hidden' : ''} `}>
+                <div className={` ${Number(position) > 250 && pathname === '/result' ? 'hidden' : ''} `}>
                     <LoanFilterBar />
                 </div>
                 <LoansListContainert />

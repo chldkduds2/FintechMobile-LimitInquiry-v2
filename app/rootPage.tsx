@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import store from '@/store/index';
 import FintechMobalieLayout from '@/components/Common/FintechMobalieLayout/index';
 import ErrorBoundary from '@/components/Common/ErrorBoundary/index';
-import SkeletonFallbackUI from '@/components/Common/Skeleton/FallbackUI/index';
 import './globals.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -36,9 +35,7 @@ const RootPage = ({ children }: { children: ReactNode }) => {
                 <QueryClientProvider client={queryClient}>
                     <Provider store={store}>
                         <FintechMobalieLayout>
-                            <ErrorBoundary>
-                                <Suspense fallback={<SkeletonFallbackUI />}>{children}</Suspense>
-                            </ErrorBoundary>
+                            <ErrorBoundary>{children}</ErrorBoundary>
                         </FintechMobalieLayout>
                     </Provider>
                 </QueryClientProvider>
