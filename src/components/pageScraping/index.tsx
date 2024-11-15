@@ -7,7 +7,7 @@ const PageScraping = () => {
     const { userInfo, progress, dots, images, imageCurrentIndex, loansListCountState } = usePageScraping();
 
     return (
-        <div className="px-5">
+        <div className="px-5 w-[427px]">
             <div className="h-[30px]" />
             <p className="whitespace-pre text-[22px]">
                 <b>{`${loansListCountState}개의 금융사로부터 ${userInfo?.name}님의`}</b>
@@ -18,20 +18,26 @@ const PageScraping = () => {
                 {progress === 100 ? '완료!' : `${Math.round(progress)}% 확인중${'.'.repeat(dots)}`}
             </p>
 
-            <div className="relative flex flex-col items-center mt-30 h-[300px] justify-center">
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className="absolute w-[100px] h-[100px] transition-all duration-500 ease-in-out"
-                        style={{
-                            filter: index === imageCurrentIndex ? 'none' : 'blur(4px)',
-                            opacity: index === imageCurrentIndex ? 1 : 0.5,
-                            transform: `translateY(${(index - imageCurrentIndex) * 50}px)`,
-                        }}
-                    >
-                        <Image src={image} alt={`Image ${index + 1}`} />
-                    </div>
-                ))}
+            <div className="relative flex flex-col items-start mt-30 h-[300px] justify-start w-full">
+                {images.map((image, index) => {
+                    if (index < imageCurrentIndex - 1 || index > imageCurrentIndex + 1) {
+                        return null;
+                    }
+                    return (
+                        <div
+                            key={index}
+                            className="absolute w-[100px] h-[100px] transition-all duration-500 ease-in-out mt-32"
+                            style={{
+                                filter: index === imageCurrentIndex ? 'none' : 'blur(4px)',
+                                opacity: index === imageCurrentIndex ? 1 : 0.5,
+                                transform: `translateY(${(index - imageCurrentIndex) * 50}px)`,
+                                right: 170,
+                            }}
+                        >
+                            <Image src={image} alt={`Image ${index + 1}`} />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
