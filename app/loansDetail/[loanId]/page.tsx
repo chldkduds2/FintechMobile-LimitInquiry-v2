@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import LoansDetail from '@/components/LoansDetail';
+import LoansDetail from "@/components/LoansDetail";
 
 const LoansDetailPage = () => {
-    return <LoansDetail />;
+  return <LoansDetail />;
 };
 export default LoansDetailPage;

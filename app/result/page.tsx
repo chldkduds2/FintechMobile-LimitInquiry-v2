@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Result from '@/components/Result';
+import Result from "@/components/Result";
 
 const ResultPage = () => {
-    return <Result />;
+  return <Result />;
 };
 
 export default ResultPage;
