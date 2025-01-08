@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import useLoansListDetailDate from '@/services/LoansListDetailDateRepository/queries';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoanCTAmodalOpenState } from '@/store/Selectors/index';
@@ -17,7 +17,7 @@ const useLoanInfo = () => {
         if (data) {
             setOpenIndexes(Array(data.length).fill(true));
         }
-    }, [data]); // `isLoanCTAmodalOpenState` 의존성 배열에서 제거
+    }, [data]);
 
     const toggleAll = () => {
         const newState = openIndexes.some((isOpen) => isOpen) ? false : true;

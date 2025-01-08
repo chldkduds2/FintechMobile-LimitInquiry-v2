@@ -1,30 +1,28 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import FallbackUI from "@/components/Common/ErrorBoundaryFallbackUI/FallbackUI/index";
+import { useState, useEffect } from 'react';
+import ErrorBoundaryFallbackUI from '@/components/Common/ErrorBoundaryFallbackUI/index';
 
 const ErrorBoundaryPage = ({ error }: { error: Error }) => {
-  const [hasError, setHasError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+    const [hasError, setHasError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    if (error) {
-      setHasError(true);
-      setErrorMessage(error.message);
+    useEffect(() => {
+        if (error) {
+            setHasError(true);
+            setErrorMessage(error.message);
+        }
+    }, [error]);
+
+    const handleRetry = () => {
+        window.location.reload();
+    };
+
+    if (hasError) {
+        return <ErrorBoundaryFallbackUI EventHandler={handleRetry} errorMessage={errorMessage} />;
     }
-  }, [error]);
 
-  const handleRetry = () => {
-    window.location.reload();
-  };
-
-  if (hasError) {
-    return (
-      <FallbackUI EventHandler={handleRetry} errorMessage={errorMessage} />
-    );
-  }
-
-  return null;
+    return null;
 };
 
 export default ErrorBoundaryPage;

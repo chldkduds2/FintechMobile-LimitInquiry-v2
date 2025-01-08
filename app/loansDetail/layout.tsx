@@ -1,7 +1,9 @@
-"use client";
+'use client';
+
+import React from 'react';
 
 const LoansDetailLayout = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+    return <React.Fragment>{children}</React.Fragment>;
 };
 
 export default LoansDetailLayout;
