@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import FallbackUI from '@/components/Common/ErrorBoundaryFallbackUI/FallbackUI/index';
+import ErrorBoundaryFallbackUI from '@/components/Common/ErrorBoundaryFallbackUI/index';
 
 const ErrorBoundaryPage = ({ error }: { error: Error }) => {
     const [hasError, setHasError] = useState(false);
@@ -19,7 +19,7 @@ const ErrorBoundaryPage = ({ error }: { error: Error }) => {
     };
 
     if (hasError) {
-        return <FallbackUI EventHandler={handleRetry} errorMessage={errorMessage} />;
+        return <ErrorBoundaryFallbackUI EventHandler={handleRetry} errorMessage={errorMessage} />;
     }
 
     return null;

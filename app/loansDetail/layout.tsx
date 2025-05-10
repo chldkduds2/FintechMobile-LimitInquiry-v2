@@ -1,14 +1,9 @@
 'use client';
 
-import React, { Suspense } from 'react';
-import FallbackUI from '@/components/Common/Skeleton/FallbackUI/index';
+import React from 'react';
 
 const LoansDetailLayout = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <Suspense fallback={<FallbackUI />}>
-            <div>{children}</div>
-        </Suspense>
-    );
+    return <React.Fragment>{children}</React.Fragment>;
 };
 
 export default LoansDetailLayout;

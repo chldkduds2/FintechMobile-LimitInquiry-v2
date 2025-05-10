@@ -1,5 +1,3 @@
-'use client';
-
 import Result from '@/components/Result';
 
 const ResultPage = () => {

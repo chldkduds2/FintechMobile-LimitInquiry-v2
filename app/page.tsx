@@ -7,6 +7,7 @@ import useInitializeAuthToken from '@/hooks/Common/InitializeAuthToken/UseInitia
 
 const MainPage = () => {
     useInitializeAuthToken();
+
     return (
         <Suspense fallback={<PageScrapingFallbackUI />}>
             <PageScraping />

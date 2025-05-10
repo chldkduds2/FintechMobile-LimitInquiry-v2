@@ -54,7 +54,7 @@ const LoanInfo = () => {
             </div>
 
             <div className="fixed bottom-0 left-0 z-50 w-full">
-                <div className="px-4 bg-white pb-[max(env(safe-area-inset-bottom),_16px)] relative">
+                <div className="px-4 pb-[max(env(safe-area-inset-bottom),_16px)] relative">
                     <div className="relative flex flex-col gap-2">
                         <div className="z-20 flex justify-center w-full">
                             <Image

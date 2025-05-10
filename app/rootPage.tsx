@@ -7,6 +7,7 @@ import store from '@/store/index';
 import FintechMobalieLayout from '@/components/Common/FintechMobalieLayout/index';
 import './globals.css';
 import { motion, AnimatePresence } from 'framer-motion';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const defaultQueryOptions = {
     staleTime: 1000 * 60 * 10,
@@ -33,7 +34,10 @@ const RootPage = ({ children }: { children: ReactNode }) => {
             >
                 <QueryClientProvider client={queryClient}>
                     <Provider store={store}>
-                        <FintechMobalieLayout>{children}</FintechMobalieLayout>
+                        <FintechMobalieLayout>
+                            {children}
+                            {/* <ReactQueryDevtools /> */}
+                        </FintechMobalieLayout>
                     </Provider>
                 </QueryClientProvider>
             </motion.div>
